@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmsjrlpfrow11"]
+
+[ext_resource type="Script" path="res://scene/1/isle.gd" id="1_d3aah"]
+[ext_resource type="PackedScene" uid="uid://ctc31fesoej33" path="res://scene/4/plantDomain.tscn" id="2_hfwny"]
+[ext_resource type="PackedScene" uid="uid://tey7mos8jv1c" path="res://scene/1/illuminance.tscn" id="2_lc18t"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j8mrg"]
+friction = 0.0
+bounce = 1.0
+
+[node name="Isle" type="Node2D"]
+script = ExtResource("1_d3aah")
+
+[node name="Illuminance" parent="." node_paths=PackedStringArray("isle") instance=ExtResource("2_lc18t")]
+isle = NodePath("..")
+
+[node name="Edge" type="StaticBody2D" parent="."]
+modulate = Color(1, 0.27, 0.27, 1)
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_j8mrg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Edge"]
+polygon = PackedVector2Array(0, 0, 0, 800, 16, 784, 16, 16, 1424, 16, 1424, 784, 16, 784, 0, 800, 1440, 800, 1440, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="Edge"]
+polygon = PackedVector2Array(0, 0, 0, 800, 16, 784, 16, 16, 1424, 16, 1424, 784, 16, 784, 0, 800, 1440, 800, 1440, 0)
+
+[node name="Domains" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="plantDomain" parent="Domains" node_paths=PackedStringArray("isle") instance=ExtResource("2_hfwny")]
+unique_name_in_owner = true
+isle = NodePath("../..")
+
+[node name="Habitats" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Start" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Start" to="." method="_on_start_timeout"]

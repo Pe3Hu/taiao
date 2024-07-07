@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NourishmentResource" load_steps=2 format=3 uid="uid://b37tbtd8tpb6v"]
+
+[ext_resource type="Script" path="res://resource/nourishment/nourishmentResource.gd" id="1_11ty6"]
+
+[resource]
+script = ExtResource("1_11ty6")
+nourishment = "omnivore"
+valuation_plant = 1.5
+valuation_meat = 1.5
+valuation_carrion = 0.0

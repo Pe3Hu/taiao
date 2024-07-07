@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl8ugfoeu6yth"]
+
+[ext_resource type="Script" path="res://scene/3/blob.gd" id="1_3h3is"]
+[ext_resource type="Script" path="res://addons/regular_polygon2d_node/RegularPolygon2D.gd" id="1_y7x6b"]
+[ext_resource type="PackedScene" uid="uid://6oavrnqeq5vw" path="res://scene/3/sight.tscn" id="3_0r2s3"]
+[ext_resource type="Script" path="res://resource/nourishment/nourishmentResource.gd" id="4_ut5d5"]
+
+[sub_resource type="Resource" id="Resource_gmktb"]
+script = ExtResource("4_ut5d5")
+nourishment = "herbivore"
+valuation_plant = 0.0
+valuation_meat = 0.0
+valuation_carrion = 0.0
+
+[node name="Blob" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_3h3is")
+
+[node name="RegularPolygon2D" type="Node2D" parent="." node_paths=PackedStringArray("collision_shape")]
+script = ExtResource("1_y7x6b")
+centered = true
+num_sides = 4
+size = 16.0
+polygon_color = Color(0.522232, 0.487349, 0.590781, 1)
+border_size = 3.0
+collision_shape = NodePath("../CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+unique_name_in_owner = true
+polygon = PackedVector2Array(-3.49691e-07, -8, 8, 0, -3.49691e-07, 8, -8, -6.99382e-07)
+
+[node name="Sight" parent="." node_paths=PackedStringArray("blob") instance=ExtResource("3_0r2s3")]
+unique_name_in_owner = true
+blob = NodePath("..")
+nourishment = SubResource("Resource_gmktb")
+view_angle = 0.0
+
+[node name="LimboHSM" type="LimboHSM" parent="."]
+
+[node name="AccelerationTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="active_state_changed" from="LimboHSM" to="." method="_on_hsm_active_state_changed"]
+[connection signal="timeout" from="AccelerationTimer" to="." method="_on_acceleration_timer_timeout"]

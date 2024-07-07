@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://6oavrnqeq5vw"]
+
+[ext_resource type="Script" path="res://scene/3/sight.gd" id="1_js7dt"]
+
+[node name="Sight" type="Node2D"]
+script = ExtResource("1_js7dt")
+side_glance = 128
+front_glance = 128
+view_angle = 30.0
+
+[node name="Focuses" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Left" type="RayCast2D" parent="Focuses"]
+target_position = Vector2(110.851, -64)
+collision_mask = 0
+
+[node name="Center" type="RayCast2D" parent="Focuses"]
+target_position = Vector2(128, 0)
+collision_mask = 0
+
+[node name="Right" type="RayCast2D" parent="Focuses"]
+target_position = Vector2(110.851, 64)
+collision_mask = 0

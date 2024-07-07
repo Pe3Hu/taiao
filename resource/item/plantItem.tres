@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://b0tfthhk4kfqa"]
+
+[ext_resource type="Script" path="res://resource/item/itemResource.gd" id="1_qwicw"]
+[ext_resource type="Texture2D" uid="uid://clpf8s75phjy" path="res://asset/png/item/plant.png" id="2_2jbni"]
+
+[resource]
+script = ExtResource("1_qwicw")
+type = "plant"
+weight = 0.0
+texture = ExtResource("2_2jbni")
+lifeTime = 0.0
+textureSize = Vector2(64, 64)
+smell = 24.0

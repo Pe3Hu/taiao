@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbn7jodl05hsp"]
+
+[ext_resource type="PackedScene" uid="uid://bywuu340fjqp4" path="res://scene/4/item.tscn" id="1_3gkol"]
+[ext_resource type="Resource" uid="uid://b0tfthhk4kfqa" path="res://resource/item/plantItem.tres" id="2_gb47r"]
+
+[node name="PlantItem" instance=ExtResource("1_3gkol")]
+itemResource = ExtResource("2_gb47r")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpq0g6jrlkuea"]
+
+[ext_resource type="Script" path="res://scene/0/world.gd" id="1_sbgiu"]
+[ext_resource type="PackedScene" uid="uid://dmsjrlpfrow11" path="res://scene/1/isle.tscn" id="5_2l854"]
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_sbgiu")
+
+[node name="FPS" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Isle" parent="." instance=ExtResource("5_2l854")]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3

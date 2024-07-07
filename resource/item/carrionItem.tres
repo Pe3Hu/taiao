@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://5immnhliqxc2"]
+
+[ext_resource type="Script" path="res://resource/item/itemResource.gd" id="1_lg7vq"]
+[ext_resource type="Texture2D" uid="uid://bsp7jxtb54e1x" path="res://asset/png/item/carrion.png" id="2_r8ncp"]
+
+[resource]
+script = ExtResource("1_lg7vq")
+type = "plant"
+weight = 0.0
+texture = ExtResource("2_r8ncp")
+lifeTime = 10.0
+textureSize = Vector2(64, 64)
+smell = 64.0

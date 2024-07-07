@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://chafvlq5hjaxk"]
+
+[ext_resource type="Script" path="res://scene/4/domain.gd" id="1_4e050"]
+
+[node name="Domain" type="Node2D"]
+script = ExtResource("1_4e050")
+
+[node name="Items" type="Node2D" parent="."]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://tey7mos8jv1c"]
+
+[ext_resource type="Texture2D" uid="uid://6i332awxyoju" path="res://asset/png/tileset/sun.png" id="1_ieymo"]
+[ext_resource type="Script" path="res://scene/1/illuminance.gd" id="2_36vfq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2cadc"]
+texture = ExtResource("1_ieymo")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_re0w0"]
+sources/0 = SubResource("TileSetAtlasSource_2cadc")
+
+[node name="Illuminance" type="TileMap"]
+tile_set = SubResource("TileSet_re0w0")
+format = 2
+script = ExtResource("2_36vfq")

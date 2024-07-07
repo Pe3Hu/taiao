@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NourishmentResource" load_steps=2 format=3 uid="uid://pkomghjheyor"]
+
+[ext_resource type="Script" path="res://resource/nourishment/nourishmentResource.gd" id="1_cclv2"]
+
+[resource]
+script = ExtResource("1_cclv2")
+nourishment = "scavenger"
+valuation_plant = 0.0
+valuation_meat = 1.0
+valuation_carrion = 2.0
