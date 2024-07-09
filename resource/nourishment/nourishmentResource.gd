@@ -1,7 +1,7 @@
 class_name NourishmentResource extends Resource
 
 
-@export_enum("herbivore", "predator", "scavenger", "omnivore", "vermin") var nourishment: String = "herbivore"
+@export_enum("herbivore", "predator", "scavenger", "omnivore", "vermin") var nourishment: String
 
 @export_group("Valuation", "valuation")
 @export_range(0, 3, 0.1) var valuation_plant: float = 0

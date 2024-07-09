@@ -3,10 +3,13 @@ extends Node2D
 
 
 @export var blob: Blob
-@export var nourishment: NourishmentResource = NourishmentResource.new():
+
+@export var nourishment: NourishmentResource:
 	set(nourishment_):
 		nourishment = nourishment_
-		update_masks()
+		
+		if nourishment.valuation_plant + nourishment.valuation_meat + nourishment.valuation_carrion > 0:
+			update_masks()
 	get:
 		return nourishment 
 
@@ -54,6 +57,8 @@ func update_masks() -> void:
 	if blob != null:
 		#blob.collision_layer += mask
 		blob.collision_mask += mask
+		blob.navigation_agent.avoidance_mask += mask
+		pass
 	
 func update_focuses(names_: Array) -> void:
 	for _name in names_:

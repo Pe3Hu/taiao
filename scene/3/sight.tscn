@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://6oavrnqeq5vw"]
+[gd_scene load_steps=4 format=3 uid="uid://6oavrnqeq5vw"]
 
 [ext_resource type="Script" path="res://scene/3/sight.gd" id="1_js7dt"]
+[ext_resource type="Script" path="res://resource/nourishment/nourishmentResource.gd" id="2_1ttsn"]
+
+[sub_resource type="Resource" id="Resource_6x1sc"]
+script = ExtResource("2_1ttsn")
+nourishment = ""
+valuation_plant = 0.0
+valuation_meat = 0.0
+valuation_carrion = 0.0
 
 [node name="Sight" type="Node2D"]
 script = ExtResource("1_js7dt")
+nourishment = SubResource("Resource_6x1sc")
 side_glance = 128
 front_glance = 128
 view_angle = 30.0

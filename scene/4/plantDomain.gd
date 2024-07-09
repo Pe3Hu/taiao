@@ -12,7 +12,7 @@ func awakening() -> void:
 func growth() -> void:
 	var instance = pool.pop_back()
 	items.add_child(instance)
-	instance.itemSource = ItemSource.from_sun()
+	instance.itemSource = ItemSource.from_sun(self)
 	instance.itemResource = itemResource
 	#var a = instance.get_node("BiteArea")
 	

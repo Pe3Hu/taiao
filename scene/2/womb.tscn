@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://wg8okr2nh15a"]
+
+[ext_resource type="Script" path="res://scene/2/womb.gd" id="1_th3x6"]
+[ext_resource type="PackedScene" uid="uid://362q3dr0jjrv" path="res://scene/3/cavity.tscn" id="2_u18ak"]
+
+[node name="Womb" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_th3x6")
+
+[node name="Cavities" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 16.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Jaw" parent="Cavities" node_paths=PackedStringArray("proprietor") instance=ExtResource("2_u18ak")]
+layout_mode = 2
+type = "jaw"
+proprietor = NodePath("../..")
+color_under = Color(0.690196, 0.705882, 1, 1)
+color_progress = Color(0.211765, 0.819608, 0.819608, 1)
+treatment_time = 2.0
+
+[node name="Stomach" parent="Cavities" node_paths=PackedStringArray("proprietor") instance=ExtResource("2_u18ak")]
+layout_mode = 2
+proprietor = NodePath("../..")
+color_under = Color(0.690196, 0.705882, 1, 1)
+color_progress = Color(1, 0.853, 0.02, 1)
+treatment_time = 4.0

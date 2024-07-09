@@ -128,7 +128,8 @@ func init_blank() -> void:
 
 
 func init_node() -> void:
-	node.world = get_node("/root/World")
+	pass
+	#node.world = get_node("/root/World")
 
 
 func init_scene() -> void:

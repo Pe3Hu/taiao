@@ -3,14 +3,27 @@ class_name Habitat extends Node2D
 
 @export var isle: Isle
 @export var blobSize: float = 8.0
-@export var hue: float = 0.0
+
+@export var hue: float:
+	set(hue_):
+		hue = hue_
+		lair.poly.color = Color.from_hsv(hue, 0.8, 0.7, 1)
+	get:
+		return hue
+
+@export var layer: int:
+	set(layer_):
+		layer = layer_
+		lair.spawn.collision_mask = pow(2, layer - 1)
+		lair.spawn.collision_layer = pow(2, layer - 1)
+	get:
+		return layer
 
 @onready var boundary = $Boundary
 @onready var poly = $Boundary/Polygon2D
 @onready var lair = $Lair
 
 var index = null
-var layer = null
 
 
 func _ready() -> void:
@@ -19,9 +32,6 @@ func _ready() -> void:
 	layer = index + 5
 	
 	boundary.collision_layer = pow(2, layer - 1)
-	
-func init() -> void:
-	lair.set_habitat(self)
 	
 func set_isle(isle_: Isle) ->Habitat:
 	isle = isle_
@@ -51,7 +61,7 @@ func add_blob() -> void:
 	blob.habitat = self
 	
 	var color = Color.from_hsv(hue, 0.9, 0.9)
-	blob.regularPolygon.polygon_color_set(color)
+	blob.regular_polygon.polygon_color_set(color)
 	
 	blob.collision_mask += pow(2, layer - 1)
 	blob.collision_layer += pow(2, layer - 1)

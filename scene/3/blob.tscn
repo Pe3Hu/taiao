@@ -1,19 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl8ugfoeu6yth"]
+[gd_scene load_steps=7 format=3 uid="uid://bl8ugfoeu6yth"]
 
 [ext_resource type="Script" path="res://scene/3/blob.gd" id="1_3h3is"]
 [ext_resource type="Script" path="res://addons/regular_polygon2d_node/RegularPolygon2D.gd" id="1_y7x6b"]
 [ext_resource type="PackedScene" uid="uid://6oavrnqeq5vw" path="res://scene/3/sight.tscn" id="3_0r2s3"]
 [ext_resource type="Script" path="res://resource/nourishment/nourishmentResource.gd" id="4_ut5d5"]
+[ext_resource type="PackedScene" uid="uid://ccjv6kgnk75e3" path="res://scene/3/organism.tscn" id="5_5pvia"]
 
 [sub_resource type="Resource" id="Resource_gmktb"]
 script = ExtResource("4_ut5d5")
-nourishment = "herbivore"
+nourishment = ""
 valuation_plant = 0.0
 valuation_meat = 0.0
 valuation_carrion = 0.0
 
 [node name="Blob" type="CharacterBody2D"]
-scale = Vector2(2, 2)
 script = ExtResource("1_3h3is")
 
 [node name="RegularPolygon2D" type="Node2D" parent="." node_paths=PackedStringArray("collision_shape")]
@@ -41,5 +41,25 @@ view_angle = 0.0
 unique_name_in_owner = true
 one_shot = true
 
+[node name="Organism" parent="." node_paths=PackedStringArray("blob") instance=ExtResource("5_5pvia")]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -16.0
+offset_top = -8.0
+offset_right = -16.0
+offset_bottom = -8.0
+grow_horizontal = 0
+scale = Vector2(5, 5)
+blob = NodePath("..")
+
+[node name="NavigationAgent" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
+avoidance_enabled = true
+radius = 32.0
+debug_enabled = true
+
 [connection signal="active_state_changed" from="LimboHSM" to="." method="_on_hsm_active_state_changed"]
 [connection signal="timeout" from="AccelerationTimer" to="." method="_on_acceleration_timer_timeout"]
+[connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_navigation_agent_2d_velocity_computed"]

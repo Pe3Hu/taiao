@@ -5,6 +5,7 @@
 
 [node name="PlantDomain" instance=ExtResource("1_1jt3f")]
 script = ExtResource("2_5hl70")
+type = null
 
 [node name="GrowthTimer" type="Timer" parent="." index="0"]
 unique_name_in_owner = true

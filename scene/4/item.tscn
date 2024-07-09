@@ -34,7 +34,12 @@ unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="BiteArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BiteArea"]
 shape = SubResource("CircleShape2D_u7u4e")
+
+[node name="NavigationAgent" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+avoidance_layers = 0
+avoidance_mask = 0
 
 [connection signal="timeout" from="OdorTimer" to="." method="_on_odor_timer_timeout"]

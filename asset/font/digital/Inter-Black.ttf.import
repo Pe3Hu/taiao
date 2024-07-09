@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://deu2vlj4q8un0"
-path="res://.godot/imported/Chunk Five Print.otf-1d1d497c6a6ce912e3c83f42eef29feb.fontdata"
+uid="uid://33eqagvh85us"
+path="res://.godot/imported/Inter-Black.ttf-91d8a63a075ad7e6013f7b940e468b2a.fontdata"
 
 [deps]
 
-source_file="res://asset/font/letter/Chunk Five Print.otf"
-dest_files=["res://.godot/imported/Chunk Five Print.otf-1d1d497c6a6ce912e3c83f42eef29feb.fontdata"]
+source_file="res://asset/font/digital/Inter-Black.ttf"
+dest_files=["res://.godot/imported/Inter-Black.ttf-91d8a63a075ad7e6013f7b940e468b2a.fontdata"]
 
 [params]
 

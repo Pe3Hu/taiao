@@ -10,6 +10,7 @@ class_name Item extends Node2D
 		if itemResource.texture != null:
 			%Sprite2D.texture = itemResource.texture
 			%BiteArea.collision_layer = itemResource.get_mask()
+			%NavigationAgent.avoidance_layers = itemResource.get_mask()
 			#%BiteArea.collision_mask += itemResource.get_mask()
 			#itemResource.item = self
 	get:

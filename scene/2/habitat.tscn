@@ -21,7 +21,8 @@ polygon = PackedVector2Array(0, -32, 32, 0, 0, 32, -32, 0, 0, -32, -132, -132, -
 script = ExtResource("1_53yjy")
 polygon_2d = NodePath("../Polygon2D")
 
-[node name="Lair" parent="." instance=ExtResource("3_vg0br")]
+[node name="Lair" parent="." node_paths=PackedStringArray("habitat") instance=ExtResource("3_vg0br")]
+habitat = NodePath("..")
 
 [node name="Blobs" type="Node2D" parent="."]
 unique_name_in_owner = true

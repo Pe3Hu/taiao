@@ -1,8 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmsjrlpfrow11"]
+[gd_scene load_steps=9 format=3 uid="uid://dmsjrlpfrow11"]
 
 [ext_resource type="Script" path="res://scene/1/isle.gd" id="1_d3aah"]
-[ext_resource type="PackedScene" uid="uid://ctc31fesoej33" path="res://scene/4/plantDomain.tscn" id="2_hfwny"]
 [ext_resource type="PackedScene" uid="uid://tey7mos8jv1c" path="res://scene/1/illuminance.tscn" id="2_lc18t"]
+[ext_resource type="Texture2D" uid="uid://dartsemfl8p1a" path="res://asset/png/tileset/grass.png" id="3_m5qea"]
+[ext_resource type="PackedScene" uid="uid://chafvlq5hjaxk" path="res://scene/4/domain.tscn" id="4_8y13m"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4omb0"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1laat"]
+texture = ExtResource("3_m5qea")
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_4omb0")
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g6cvj"]
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Grass"
+terrain_set_0/terrain_0/color = Color(0.516113, 0.198687, 0.703056, 1)
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_1laat")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j8mrg"]
 friction = 0.0
@@ -13,6 +34,10 @@ script = ExtResource("1_d3aah")
 
 [node name="Illuminance" parent="." node_paths=PackedStringArray("isle") instance=ExtResource("2_lc18t")]
 isle = NodePath("..")
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_g6cvj")
+format = 2
 
 [node name="Edge" type="StaticBody2D" parent="."]
 modulate = Color(1, 0.27, 0.27, 1)
@@ -28,7 +53,7 @@ polygon = PackedVector2Array(0, 0, 0, 800, 16, 784, 16, 16, 1424, 16, 1424, 784,
 [node name="Domains" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="plantDomain" parent="Domains" node_paths=PackedStringArray("isle") instance=ExtResource("2_hfwny")]
+[node name="PlantDomain" parent="Domains" node_paths=PackedStringArray("isle") instance=ExtResource("4_8y13m")]
 unique_name_in_owner = true
 isle = NodePath("../..")
 

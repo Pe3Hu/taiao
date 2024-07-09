@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b8ekiwlwgaa3d"
-path="res://.godot/imported/SwilyBright-Italic.otf-dd2cbd02e965f76f4e5c2508e57640e0.fontdata"
+uid="uid://cs75vx6xtcem3"
+path="res://.godot/imported/Walter-Bold.ttf-274f733db690cac6ccd7b1f58d578867.fontdata"
 
 [deps]
 
-source_file="res://asset/font/digital/SwilyBright-Italic.otf"
-dest_files=["res://.godot/imported/SwilyBright-Italic.otf-dd2cbd02e965f76f4e5c2508e57640e0.fontdata"]
+source_file="res://asset/font/letter/Walter-Bold.ttf"
+dest_files=["res://.godot/imported/Walter-Bold.ttf-274f733db690cac6ccd7b1f58d578867.fontdata"]
 
 [params]
 

@@ -18,14 +18,37 @@ var itemResource
 var pool: Array[Item]
 
 
-func _ready() -> void:
+func _ready():
 	refill_pool()
 	
 func refill_pool() -> void:
+	type = type
+	
 	for _i in Global.num.domain.count:
 		var instance = itemScene.instantiate()
 		pool.append(instance)
 		instance.domain = self
 	
 func awakening() -> void:
-	pass
+	match type:
+		"plant":
+			for _i in Global.num.plant.start:
+				growth()
+			
+			%Timer.start()
+	
+func growth() -> void:
+	var instance = pool.pop_back()
+	items.add_child(instance)
+	instance.itemSource = ItemSource.from_sun(self)
+	instance.itemResource = itemResource
+	#var a = instance.get_node("BiteArea")
+	
+	if pool.is_empty():
+		refill_pool()
+	
+func _on_timer_timeout():
+	match type:
+		"plant":
+			for _i in Global.num.domain.growth:
+				growth()

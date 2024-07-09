@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://d0ua0ymydquji"
-path="res://.godot/imported/Montserrat-Regular.ttf-03905d6b1f782c9a4c4592363053610a.fontdata"
+uid="uid://daltcur86603l"
+path="res://.godot/imported/Roboto-Bold.ttf-92e49588df36b48ecc47f26da0fb30e8.fontdata"
 
 [deps]
 
-source_file="res://asset/font/digital/Montserrat-Regular.ttf"
-dest_files=["res://.godot/imported/Montserrat-Regular.ttf-03905d6b1f782c9a4c4592363053610a.fontdata"]
+source_file="res://asset/font/letter/Roboto-Bold.ttf"
+dest_files=["res://.godot/imported/Roboto-Bold.ttf-92e49588df36b48ecc47f26da0fb30e8.fontdata"]
 
 [params]
 

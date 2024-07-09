@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu4weylxpqval"]
+[gd_scene load_steps=3 format=3 uid="uid://cu4weylxpqval"]
 
 [ext_resource type="Script" path="res://scene/2/lair.gd" id="1_a68tu"]
+[ext_resource type="PackedScene" uid="uid://wg8okr2nh15a" path="res://scene/2/womb.tscn" id="2_eftrf"]
 
 [node name="Lair" type="Node2D"]
 script = ExtResource("1_a68tu")
@@ -9,11 +10,9 @@ script = ExtResource("1_a68tu")
 unique_name_in_owner = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawn"]
-visible = false
-polygon = PackedVector2Array(0, -8, 8, 0, 0, 8, -8, 0)
+polygon = PackedVector2Array(0, -16, 16, 0, 0, 16, -16, 0)
 
 [node name="Wall" type="StaticBody2D" parent="."]
-unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
 
@@ -22,6 +21,13 @@ polygon = PackedVector2Array(0, -8, 8, 0, 0, 8, -8, 0)
 
 [node name="Polygon2D" type="Polygon2D" parent="Wall"]
 polygon = PackedVector2Array(0, -8, 8, 0, 0, 8, -8, 0)
+
+[node name="Womb" parent="Wall" node_paths=PackedStringArray("lair") instance=ExtResource("2_eftrf")]
+lair = NodePath("../..")
+
+[node name="NavigationAgent" type="NavigationAgent2D" parent="."]
+avoidance_layers = 0
+avoidance_mask = 0
 
 [connection signal="body_entered" from="Spawn" to="." method="_on_spawn_body_entered"]
 [connection signal="body_exited" from="Spawn" to="." method="_on_spawn_body_exited"]

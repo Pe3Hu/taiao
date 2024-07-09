@@ -2,6 +2,7 @@ class_name Isle extends Node2D
 
 
 @onready var edge = $Edge
+@onready var ground = $Ground
 @onready var illuminance = $Illuminance
 
 var spots = []
@@ -40,7 +41,7 @@ func init_habitats() -> void:
 func add_habitat() -> void:
 	var habitat = Global.scene.habitat.instantiate()
 	%Habitats.add_child(habitat)
-	habitat.set_isle(self).roll_position().roll_color().init()
+	habitat.set_isle(self).roll_position().roll_color().add_blob()
 	
 func _on_start_timeout():
 	init_domains()

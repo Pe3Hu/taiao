@@ -10,7 +10,7 @@ func _ready() -> void:
 	#var random = Global.rng.randi_range(0, 1)
 	pass
 	
-	#var idle_state = LimboState.new().named("Idle").call_on_enter(idle_ready).call_on_update(idle_physics_process)
+	#var idle_state = LimboState.new().named("idle").call_on_enter(idle_ready).call_on_update(idle_physics_process)
 	#hsm.add_child(idle_state)
 	#hsm.add_transition(_state, idle_state, &"idle_started")
 	#hsm.add_transition(idle_state, _state, &"idle_ended")
